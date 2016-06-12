@@ -83,3 +83,12 @@ Stop the docker-compose:
 ` docker-compose stop `
 
 
+
+## Issue in case gmail
+In case that you have this issue during the email notification
+```
+send-mail: Authorization failed (534 5.7.14 https://support.google.com/mail/bin/answer.py?answer=78754 ni5sm3908366pbc.83 - gsmtp)
+```
+
+See this http://serverfault.com/questions/635139/how-to-fix-send-mail-authorization-failed-534-5-7-14
+
