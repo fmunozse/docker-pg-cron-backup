@@ -1,0 +1,1 @@
+docker build -t fmunozse/pg-cron-backups .

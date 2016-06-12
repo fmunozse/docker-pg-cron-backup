@@ -1,0 +1,17 @@
+version: '2'
+services:
+    postgresql-backup:
+        container_name: postgresql-backup
+        image: fmunozse/pg-cron-backups
+        volumes:
+          - ~/volumes/postgresql_backups/:/data/backups/
+        environment:
+          - DB_HOST=11.222.333.444
+          - DB_NAME=postgres
+          - DB_USER=myUser
+          - DB_PASS=myPassword
+          - CRON_SCHEDULE=0 23 * * *
+          - MAIL_GMAIL_USER=myUser@gmail.com
+          - MAIL_GMAIL_PWD=myPassword
+          - MAIL_TO=myUser@gmail.com
+          - MAIL_FROM=myUser@gmail.com
