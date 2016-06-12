@@ -1,22 +1,22 @@
-# docker-pg-cron-backup
+# pg-cron-backup
 
 ## Description
 This docker basically is a cron trigger to perform backups of a postgresql ddbb.  It has been done from 
 [heyman/docker-postgres-backup](https://github.com/heyman/docker-postgres-backup)
 
-The backup is manage by a phyton script backup.py and the backup is donde in several steps:
+The image is generated from `FROM postgres:9.5.1`
+
+The backup is manage by a phyton script backup.py and the backup is done in several steps:
+
 1. dump of ddbb ...  
 ```python
 env PGPASSWORD=%s pg_dump -Fc -h %s -U %s %s > %s" % (DB_PASS, DB_HOST, DB_USER, DB_NAME, backup_file))
 ```
-
 2. prune the old backups
 ```python
 "find %s -type f -prune -mtime +7 -exec rm -f {} \;" % BACKUP_DIR
 ```
-
 3. Send notification mail in case is set up.  The email contains the name of file, size and time take it.
-
 4. Call to a webhook in case that is set up.
 
 
